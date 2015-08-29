@@ -3,6 +3,7 @@ socket.on('connect', function () {
     console.log('I have made a persistent two-way connection to the server!');
 });
 soundboard.on('play',function(soundObj){
+  console.log("socket tries to emit iplay");
   socket.emit('iPlay',soundObj);
 });
 

@@ -20,7 +20,7 @@ console.log("make new soundboard", window.soundboard);
 		else if (code==40) octave--;
 
 		else {
-			
+
 			// var audio = new Audio(notePath);
 			// audio.play();
 			var sound = {
@@ -40,31 +40,14 @@ console.log("make new soundboard", window.soundboard);
 	  // var audio = getAudioForKey(keyId);
 	  // audio.play();
 		console.log("playOne called on",soundObj);
+		if (shouldBroadcast) {
+			console.log("soundboard emits play event");
+			soundboard.emit('play', soundObj);
+		}
 
 		var notePath = '/sounds/piano/'+soundObj.keyId+'_'+octave+'.wav';		var audio = new Audio(notePath);
 		audio.play();
 
-	  if (shouldBroadcast) {
-			console.log("soundboard emits play event");
-	    soundboard.emit('play', soundObj);
-	  }
 	}
-	//
-	// soundboard.playAll = function(soundArr)
-	// {
-	//   soundArr.forEach(function(sound)
-	//   {
-	//     setTimeout(function()
-	//     {
-	//       playOne(sound);
-	//     },delay);
-	//   }
-	// }
-	//
-	// function getAudioForKey(keyId)
-	// {
-	//   var keyToAudioMap = [];
-	//   return keyToAudioMap[keyId];
-	// }
 
 })();
