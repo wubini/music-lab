@@ -1,0 +1,53 @@
+<html>
+	<head>
+	</head>
+
+	<body>
+		<p>hay guys</p>
+
+	</body>
+	<script src="/event-emitter.js"></script>
+	<script src="/soundboard.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script src="/app.js"></script>
+	<script>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+	document.addEventListener('keydown', soundboard.makeSoundObj, false);
+=======
+	document.addEventListener('keydown', function(e) {
+		soundboard.makeSoundObj(e);
+	}, false);
+>>>>>>> 37894783a589d18495ed3aa73b090716295625eb
+=======
+	document.addEventListener('keydown', function(e) {
+		soundboard.makeSoundObj(e);
+	}, false);
+>>>>>>> a4a02f1412b91f4eeebce0e71cb662f693c66780
+	//
+	// function keyPress(e) {
+	// 	var notePath = './sounds/piano/'+e.keyCode+'.wav';
+	// 	var audio = new Audio(notePath);
+	// 	audio.play();
+	// }
+=======
+	var octave = 4;
+
+
+
+	document.addEventListener('keydown', keyPress, false);
+	function keyPress(e) {
+		var code = e.keyCode;
+		if (code==38) octave++;
+		else if (code==40) octave--;
+
+		else {
+			var notePath = './sounds/piano/'+e.keyCode+'_'+octave+'.wav';
+			var audio = new Audio(notePath);
+			audio.play();
+		}
+	}
+>>>>>>> add some octaves
+	</script>
+</html>
