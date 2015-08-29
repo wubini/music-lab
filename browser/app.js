@@ -1,4 +1,5 @@
 var socket = io(window.location.origin);
+console.log("io", io);
 socket.on('connect', function () {
     console.log('I have made a persistent two-way connection to the server!');
 });
