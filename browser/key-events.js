@@ -1,9 +1,16 @@
 document.addEventListener('keydown', keyPress, false);
 document.addEventListener('keyup', showKeyReleased, false);
-
+	var octave = 4;
 function keyPress(e) {
-  var notePath = '/sounds/piano/'+e.keyCode+'.wav';
-  console.log(e.keyCode);
+  var code = e.keyCode;
+  if (code==38) octave++;
+  else if (code==40) octave--;
+
+  else {
+    var notePath = './sounds/piano/'+e.keyCode+'_'+octave+'.wav';
+    var audio = new Audio(notePath);
+    audio.play();
+  }
   if (e.keyCode===49){notePath = '/sounds/horse.ogg'}
   var audio = new Audio(notePath);
   audio.play();
