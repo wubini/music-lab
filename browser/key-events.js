@@ -5,6 +5,8 @@ function keyPress(e) {
   var code = e.keyCode;
   if (code==38) octave++;
   else if (code==40) octave--;
+  if (octave>5){octave=5;}
+  if (octave<3){octave=3;}
 
   else {
     var notePath = './sounds/piano/'+e.keyCode+'_'+octave+'.wav';
