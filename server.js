@@ -39,7 +39,7 @@ io.on('connection', function (socket) {
 app.use(express.static(path.join(__dirname, 'browser')));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'boop.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 server.listen(3000, function () {
