@@ -1,9 +1,10 @@
-window.soundboard = window.EventEmitter()
+window.soundboard = window.EventEmitter();
+console.log("make new soundboard", soundboard);
 
 (function () {
 	var soundArray = [];
 
-	var keyButtons = querySelector('#key-buttons');
+	var keyButtons = document.querySelector('#key-buttons');
 
 	// keyButtons.addEventListener('keypress', function (button))
 
