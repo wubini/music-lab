@@ -1,71 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
 
-    <meta name="description" content="Make your music come alive!">
+   <meta name="description" content="Make your music come alive!">
 
-    <title>Music Lab</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="style.css" />
-
+    <title></title>
+    <script src="/event-emitter.js"></script>
+    <script src="/soundboard.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
 </head>
-
 <body>
+<link href="style.css" type="text/css" rel="stylesheet" />
+<div id="gradient" />
+<div id="gridLayout" class="gridLayout">
+    <!-- <div id="gridHeader">
+        <h2>Aperture Configuration:</h2> -->
+        <!-- Grid Size: -->
+        <!-- <input id="rows" type="number" min="1" max="50" value="10" width="40" size="3" onChange="GRASP.start();">
+        x
+        <input id="cols" type="number" min="1" max="50" value="10" width="40" size="3" onChange="GRASP.start();"> -->
+ <!--    </div> -->
+    <div id="grid" class="gridContainer"></div>
 
-    <!-- Piano -->
-    <ul class="piano" id="key-buttons">
-        <li class="key">
-            <span class="white-key" id="65"></span>
-            <span class="black-key" id="87"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="83"></span>
-            <span class="black-key" id="69"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="68"></span>
-            <span class="black-key" id="76"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="70"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="71"></span>
-            <span class="black-key" id="89"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="72"></span>
-            <span class="black-key" id="85"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="74"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="75"></span>
-            <span class="black-key" id="79"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="76"></span>
-            <span class="black-key" id="80"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="186"></span>
-            <span class="black-key" id="13"></span>
-        </li>
-        <li class="key">
-            <span class="white-key" id="222"></span>
-        </li>
-    </ul>
-    <!-- End Piano -->
+    <div id="matrixHeader" style="position:absolute">
+    </div>
+    <div id="matrix" class="autocorrMatrixContainer"></div>
+</div>
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="key-events.js"></script>
+   <!-- Piano -->
+   <ul class="piano" id="key-buttons">
+       <li class="key">
+           <span class="white-key" id="65"></span>
+           <span class="black-key" id="87"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="83"></span>
+           <span class="black-key" id="69"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="68"></span>
+           <span class="black-key" id="76"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="70"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="71"></span>
+           <span class="black-key" id="89"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="72"></span>
+           <span class="black-key" id="85"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="74"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="75"></span>
+           <span class="black-key" id="79"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="76"></span>
+           <span class="black-key" id="80"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="186"></span>
+           <span class="black-key" id="13"></span>
+       </li>
+       <li class="key">
+           <span class="white-key" id="222"></span>
+       </li>
+   </ul>
+   <!-- End Piano -->
+
+   <!-- Scripts -->
+   <script type="text/javascript" src="key-events.js"></script>
+<script src="gridEffects.js"></script>
 </body>
-
 </html>
-
-<!-- Building off of repo https://github.com/LFeh/piano-keyboard -->
