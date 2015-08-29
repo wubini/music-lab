@@ -1,0 +1,16 @@
+<html>
+	<head>
+	</head>
+
+	<body>
+		<p>hay guys</p>
+	</body>
+	<script>
+	document.addEventListener('keydown', keyPress, false);
+	function keyPress(e) {
+		var notePath = './sounds/piano/'+e.keyCode+'.wav';
+		var audio = new Audio(notePath);
+		audio.play();
+	}
+	</script>
+</html>
