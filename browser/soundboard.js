@@ -16,8 +16,8 @@ console.log("make new soundboard", window.soundboard);
 	soundboard.makeSoundObj = function(e) {
 		console.log('key was pressed!')
 		var code = e.keyCode;
-		if (code==38) octave++;
-		else if (code==40) octave--;
+		if (code==38 && octave<5) octave++;
+		else if (code==40 && octave>3) octave--;
 
 		else {
 
@@ -35,10 +35,6 @@ console.log("make new soundboard", window.soundboard);
 
 	soundboard.playOne = function(soundObj, shouldBroadcast)
 	{
-	  // var keyId = soundObj.keyId;
-	  // //map key to sound file
-	  // var audio = getAudioForKey(keyId);
-	  // audio.play();
 		console.log("playOne called on",soundObj);
 		if (shouldBroadcast) {
 			console.log("soundboard emits play event");
@@ -46,7 +42,19 @@ console.log("make new soundboard", window.soundboard);
 		}
 
 		var notePath = '/sounds/piano/'+soundObj.keyId+'_'+octave+'.wav';		var audio = new Audio(notePath);
+		var audio = new Audio(notePath);
 		audio.play();
+		showKeyPressed();
+
+		function showKeyReleased() {
+		 var id = soundObj.keyId;
+		 $('#' + id).removeClass('active');
+		}
+
+		function showKeyPressed() {
+		 var id = soundObj.keyId;
+		 $('#' + id).addClass('active');
+		}
 
 	}
 
