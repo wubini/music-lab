@@ -10,7 +10,9 @@
 	<script src="socket.io/socket.io.js"></script>
 	<script src="/app.js"></script>
 	<script>
-	document.addEventListener('keydown', soundboard.makeSoundObj, false);
+	document.addEventListener('keydown', function(e) {
+		soundboard.makeSoundObj(e);
+	}, false);
 	//
 	// function keyPress(e) {
 	// 	var notePath = './sounds/piano/'+e.keyCode+'.wav';
