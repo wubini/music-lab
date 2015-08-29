@@ -4,6 +4,8 @@ console.log("make new soundboard", window.soundboard);
 (function () {
 	var soundArray = [];
 	var octave = 4;
+	var instrument = 'piano';
+	var filetype = '.wav';
 
 	var keyButtons = document.querySelector('#key-buttons');
 
@@ -16,15 +18,25 @@ console.log("make new soundboard", window.soundboard);
 	soundboard.makeSoundObj = function(e) {
 		console.log('key was pressed!')
 		var code = e.keyCode;
+		e.preventDefault();
 		if (code==38 && octave<5) octave++;
 		else if (code==40 && octave>3) octave--;
+		else if (code==37) {
+			instrument = 'piano';
+			filetype = '.wav';
+		}
+		else if (code==39) {
+			instrument = 'drums';
+			filetype = '.wav';
+			octave = 4;
+		}
 
 		else {
 
 			// var audio = new Audio(notePath);
 			// audio.play();
 			var sound = {
-							keyId: e.keyCode
+							keyId: e.keyCode,
 							//delay: delay
 						};
 			//soundArray.push(sound);
@@ -41,7 +53,9 @@ console.log("make new soundboard", window.soundboard);
 			soundboard.emit('play', soundObj);
 		}
 
-		var notePath = '/sounds/piano/'+soundObj.keyId+'_'+octave+'.wav';		var audio = new Audio(notePath);
+
+
+		var notePath = '/sounds/'+instrument+'/'+soundObj.keyId+'_'+octave+filetype;		
 		var audio = new Audio(notePath);
 		audio.play();
 		showKeyPressed();
