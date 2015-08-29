@@ -3,6 +3,7 @@ console.log("make new soundboard", window.soundboard);
 
 (function () {
 	var soundArray = [];
+	var octave = 4;
 
 	var keyButtons = document.querySelector('#key-buttons');
 
@@ -12,15 +13,24 @@ console.log("make new soundboard", window.soundboard);
 	// document.addEventListener('keydown')
 	// keyButtons.on('keydown', function())
 
-	soundboard.makeSoundObj = function(event) {
+	soundboard.makeSoundObj = function(e) {
 		console.log('key was pressed!')
-		var sound = {
-						keyId: event.keyCode
-						//delay: delay
-					};
-		//soundArray.push(sound);
-		soundboard.playOne(sound, true);
-		return sound;
+		var code = e.keyCode;
+		if (code==38) octave++;
+		else if (code==40) octave--;
+
+		else {
+			
+			// var audio = new Audio(notePath);
+			// audio.play();
+			var sound = {
+							keyId: e.keyCode
+							//delay: delay
+						};
+			//soundArray.push(sound);
+			soundboard.playOne(sound, true);
+			return sound;
+		}
 	};
 
 	soundboard.playOne = function(soundObj, shouldBroadcast)
@@ -30,8 +40,8 @@ console.log("make new soundboard", window.soundboard);
 	  // var audio = getAudioForKey(keyId);
 	  // audio.play();
 		console.log("playOne called on",soundObj);
-		var notePath = './sounds/piano/'+soundObj.keyId+'.wav';
-		var audio = new Audio(notePath);
+
+		var notePath = '/sounds/piano/'+soundObj.keyId+'_'+octave+'.wav';		var audio = new Audio(notePath);
 		audio.play();
 
 	  if (shouldBroadcast) {
