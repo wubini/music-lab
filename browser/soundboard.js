@@ -1,5 +1,5 @@
-window.soundboard = window.EventEmitter();
-console.log("make new soundboard", soundboard);
+window.soundboard = new window.EventEmitter();
+console.log("make new soundboard", window.soundboard);
 
 (function () {
 	var soundArray = [];
@@ -13,7 +13,7 @@ console.log("make new soundboard", soundboard);
 	// keyButtons.on('keydown', function())
 
 	soundboard.makeSoundObj = function(event) {
-
+		console.log('key was pressed!')
 		var sound = {
 						keyId: event.keyCode
 						//delay: delay
