@@ -11,33 +11,37 @@ server.on('request', app);
 var path = require('path');
 
 var io = socketio(server);
-
-alreadyDrawn = [];
-app.get('/grace-hopper', function (req,res,next){
-});
-var nsp = io.of('/grace-hopper');
+// app.get('/grace-hopper', function (req,res,next){
+// });
+// var nsp = io.of('/grace-hopper');
 
 io.on('connection', function (socket) {
     console.log('A new client has connected!');
     console.log(socket.id);
-    socket.emit('alreadyDrawn',alreadyDrawn);
-    socket.on('draw',function(start, end, strokeColor){
-      alreadyDrawn.push({start:start,end:end,strokeColor:strokeColor});
-      console.log(strokeColor);
-      socket.broadcast.emit('draw',start, end, strokeColor);
+    // socket.emit('alreadyDrawn',alreadyDrawn);
+    // socket.on('draw',function(start, end, strokeColor){
+    //   alreadyDrawn.push({start:start,end:end,strokeColor:strokeColor});
+    //   console.log(strokeColor);
+    //   socket.broadcast.emit('draw',start, end, strokeColor);
+    // });
+
+    socket.on('iPlay', function(soundObj)
+    {
+      console.log("server got emission from client", soundObj);
+      socket.broadcast.emit('iPlay', soundObj);
     });
+
     socket.on('disconnect', function(){
       console.log(':(');
-    })
-});
-
-
-server.listen(1337, function () {
-    console.log('The server is listening on port 1337!');
+    });
 });
 
 app.use(express.static(path.join(__dirname, 'browser')));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'boop.html'));
+});
+
+server.listen(3000, function () {
+    console.log('The server is listening on port 3000!');
 });

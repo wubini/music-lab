@@ -5,12 +5,17 @@
 	<body>
 		<p>hay guys</p>
 	</body>
+	<script src="/event-emitter.js"></script>
+	<script src="/soundboard.js"></script>
+	<script src="socket.io/socket.io.js"></script>
+	<script src="/app.js"></script>
 	<script>
-	document.addEventListener('keydown', keyPress, false);
-	function keyPress(e) {
-		var notePath = './sounds/piano/'+e.keyCode+'.wav';
-		var audio = new Audio(notePath);
-		audio.play();
-	}
+	document.addEventListener('keydown', soundboard.makeSoundObj, false);
+	//
+	// function keyPress(e) {
+	// 	var notePath = './sounds/piano/'+e.keyCode+'.wav';
+	// 	var audio = new Audio(notePath);
+	// 	audio.play();
+	// }
 	</script>
 </html>
