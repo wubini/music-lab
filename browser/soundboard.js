@@ -37,6 +37,8 @@ console.log("make new soundboard", window.soundboard);
 			// audio.play();
 			var sound = {
 							keyId: e.keyCode,
+							octave: octave,
+							instrument: instrument
 							//delay: delay
 						};
 			//soundArray.push(sound);
@@ -55,7 +57,7 @@ console.log("make new soundboard", window.soundboard);
 
 
 
-		var notePath = '/sounds/'+instrument+'/'+soundObj.keyId+'_'+octave+filetype;		
+		var notePath = '/sounds/'+soundObj.instrument+'/'+soundObj.keyId+'_'+soundObj.octave+filetype;		
 		var audio = new Audio(notePath);
 		audio.play();
 		showKeyPressed();
