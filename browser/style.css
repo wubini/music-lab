@@ -135,6 +135,30 @@
 }
 
 
+/*DROP DOWN LIST*/
+/*.styled-select select {
+   background: transparent;
+
+   width: 60px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   position: absolute;
+   background-position: center;
+   }
+.styled-select {
+  background-position: center;
+   width: 60px;
+   height: 34px;
+   overflow: hidden;
+   background: url(new_arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }*/
+
 /*PIANO*/
 * {
   box-sizing: border-box;
@@ -142,6 +166,7 @@
   margin: 0;
   padding: 0;
 }
+
 img {
   max-width: 100%;
   height: auto;

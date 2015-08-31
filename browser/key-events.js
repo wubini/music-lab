@@ -129,6 +129,20 @@ function showKeyReleased(e) {
  	if ($id.hasClass('white-key')) $id.closest('li').find('.black-key').removeClass('sibling');
 }
 
+function DropDown(el) {
+    this.dd = el;
+    this.initEvents();
+}
+DropDown.prototype = {
+    initEvents : function() {
+        var obj = this;
+
+        obj.dd.on('click', function(event){
+            $(this).toggleClass('active');
+            event.stopPropagation();
+        }); 
+    }
+}
 
 // function showKeyPressed(e) {
 // 	console.log('pressed');
