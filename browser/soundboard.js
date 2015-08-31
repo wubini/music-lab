@@ -4,11 +4,20 @@ console.log("make new soundboard", window.soundboard);
 (function () {
 	var soundArray = [];
 	var octave = 4;
-	var instrument = 'piano';
+	var instrument;
 	var filetype = '.wav';
 
 	var keyButtons = document.querySelector('#key-buttons');
 
+	$(document).ready(function() {
+		instrument = $('select[name=instrument]').val();
+
+		$(function() {
+			$('select[name=instrument').change(function() {
+				instrument = $(this).val();
+			})
+		})
+	});
 
 
 
