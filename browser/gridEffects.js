@@ -134,7 +134,7 @@
             .addClass("cellCoordinates cellCoordText")
             .css("left", parseInt((j - 1) * x, 10) + "px")
             .css("top", parseInt((i - 1) * x, 10) + "px")
-            .text(i + ", " + j);
+            // .text(i + ", " + j);
 
         $(this).before(div);
     }
@@ -156,24 +156,27 @@ $(document).ready(function() {
 
 
     var frequency = {};
-    frequency['65']=[]; //a
-    frequency['66']=[]; //w
-    frequency['83']=[]; //s
-    frequency['69']=[]; //e
-    frequency['68']=[]; //d
-    frequency['70']=[]; //f
-    frequency['71']=[]; //g
-    frequency['72']=[]; //h
-    frequency['74']=[]; //j
-    frequency['75']=[]; //k
-    frequency['76']=[]; //l
-    frequency['76']=[]; //t
-    frequency['89']=[]; //y
-    frequency['85']=[]; //u
-    frequency['79']=[]; //o
-    frequency['80']=[]; //p
-    frequency['186']=[]; //semicolon
-    frequency['222']=[]; //singlequote
+    for (var key in keycodes) frequency[keycodes[key]] = [];
+
+
+    // frequency[keycodes.a]=[]; //a
+    // frequency[keycodes.w]=[]; //w
+    // frequency[keycodes.s]=[]; //s
+    // frequency[keycodes.e]=[]; //e
+    // frequency[keycodes.d]=[]; //d
+    // frequency[keycodes.f]=[]; //f
+    // frequency[keycodes.g]=[]; //g
+    // frequency[keycodes.h]=[]; //h
+    // frequency[keycodes.j]=[]; //j
+    // frequency[keycodes.k]=[]; //k
+    // frequency[keycodes.l]=[]; //l
+    // frequency[keycodes.t]=[]; //t
+    // frequency[keycodes.y]=[]; //y
+    // frequency[keycodes.u]=[]; //u
+    // frequency[keycodes.o]=[]; //o
+    // frequency[keycodes.p]=[]; //p
+    // frequency[keycodes.semicolon]=[]; //semicolon
+    // frequency[keycodes.singlequote]=[]; //singlequote
 
 
 
@@ -182,12 +185,13 @@ $(document).ready(function() {
 
     function animate(event)
     {
-        var div = $(document).find('.autocorrMatrixCellWrapper');
-        for(var i = 0; i < 910; i++){
-            $(div[i.toString()]).css('opacity', '0.6');
-        }
         var key = event.keyCode.toString();
         if(frequency[key]){
+            var div = $(document).find('.autocorrMatrixCellWrapper');
+            for(var i = 0; i < 910; i++){
+                $(div[i.toString()]).css('opacity', '0.6');
+            }
+
             var div = $(document).find('.autocorrMatrixCellWrapper');
            
             for(var i = 0; i < 13; i++){

@@ -298,10 +298,10 @@ hr {
   width: 8%;
   max-width: 85px;
 }
-.key:active .black-key,
+/*.key:active .black-key,
 .key.active .black-key {
   top: -5px;
-}
+}*/
 .key .white-key {
   background: -webkit-linear-gradient(-30deg, #f8f8f8, #ffffff);
   background: -moz-linear-gradient(-30deg, #f8f8f8, #ffffff);
@@ -338,8 +338,13 @@ hr {
 .key .black-key:active,
 .key .black-key.active {
   border-bottom-width: 3px;
-  top: 0;
+  top: 1px;
+  height: 159px;
 }
+.key .black-key.sibling {
+  top: -5px;
+}
+
 @media (max-width: 767px) {
   .key {
     width: 8%;

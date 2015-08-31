@@ -27,7 +27,7 @@ io.on('connection', function (socket) {
 
     socket.on('iPlay', function(soundObj)
     {
-      console.log("server got emission from client", soundObj);
+      //console.log("server got emission from client", soundObj);
       socket.broadcast.emit('iPlay', soundObj);
     });
 
